@@ -1,8 +1,10 @@
-window.addEventListener('load', () => {
+window.addEventListener('load', func);
+
+function func({long, lat}) {
     let longitude;
     let latitude;
 
-    if (navigator.geolocation){
+    if (long == null && lat == null && navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
             longitude = position.coords.longitude;
             latitude = position.coords.latitude;
@@ -16,15 +18,12 @@ window.addEventListener('load', () => {
                         data => {
                             console.log(data);
                             const {interval, temperature_2m, time, wind_speed_10m} = data.current;
-                            console.log(time)
-                            console.log(interval)
-                            console.log(temperature_2m)
-                            console.log(wind_speed_10m)
-                            document.getElementById("time").textContent = time;
+                            const part = time.split("T");
+                            document.getElementById("time").textContent = part[0];
                         }
                     )
                 }
             )
         });
     }
-});
+}
