@@ -19,7 +19,10 @@ function func({long, lat}) {
                             console.log(data);
                             const {interval, temperature_2m, time, wind_speed_10m} = data.current;
                             const part = time.split("T");
-                            document.getElementById("time").textContent = part[0];
+                            document.getElementById("fullDate").textContent = part[0];
+                            document.getElementById("time").textContent = part[1];
+                            document.getElementById("tem").textContent = part[0];
+                            document.getElementById("fullDate").textContent = part[0];
                         }
                     )
                 }
