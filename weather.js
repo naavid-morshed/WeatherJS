@@ -18,6 +18,7 @@ function func() {
                         data => {
                             // console.log(data);
                             const {interval, temperature_2m, time, wind_speed_10m} = data.current;
+                            console.log(data);
                             const part = time.split("T");
                             document.getElementById("fullDate").textContent = part[0];
                             document.getElementById("time").textContent = part[1];
